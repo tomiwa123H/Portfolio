@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Broadband | Norwest Digital Telecommunications</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#003366;--navy-dark:#002244;--orange:#f96e35;--orange-light:#ff8555;--white:#fff;--off-white:#f8faff;--light-grey:#f1f4f9;--mid-grey:#e2e8f0;--text-dark:#0f172a;--text-mid:#334155;--text-light:#64748b;--shadow-sm:0 1px 3px rgba(0,0,0,0.08);--shadow-md:0 4px 16px rgba(0,0,0,0.1);--shadow-lg:0 12px 40px rgba(0,0,0,0.14);--shadow-xl:0 20px 60px rgba(0,0,0,0.18);--radius-sm:8px;--radius-md:12px;--radius-lg:20px;--transition:0.3s cubic-bezier(0.4,0,0.2,1);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{font-family:"Inter",sans-serif;background:var(--white);color:var(--text-dark);overflow-x:hidden;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;height:auto;}
+/* HEADER */
+header{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:90px;position:sticky;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,0.3);}
+.logo{height:65px;}
+nav{display:flex;gap:36px;align-items:center;}
+nav a{color:rgba(255,255,255,0.9);font-size:15px;font-weight:600;transition:color var(--transition);position:relative;}
+nav a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--orange);transition:width var(--transition);}
+nav a:hover{color:white;}
+nav a:hover::after{width:100%;}
+.dropdown{position:relative;}
+.dropdown-btn{color:rgba(255,255,255,0.9);font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;transition:color var(--transition);}
+.dropdown-btn:hover{color:white;}
+.dropdown-btn::after{content:"▾";font-size:11px;}
+.dropdown-content{display:none;position:absolute;top:100%;left:0;background:white;border-radius:var(--radius-md);min-width:230px;box-shadow:var(--shadow-xl);z-index:1000;overflow:hidden;border:1px solid var(--mid-grey);padding-top:12px;margin-top:0;}
+.dropdown-content::before{content:"";display:block;height:12px;margin:-12px -1px 0;background:transparent;}
+.dropdown-content a{color:var(--text-dark);font-weight:600;padding:13px 20px;display:block;font-size:14px;transition:background var(--transition),color var(--transition);border-bottom:1px solid var(--light-grey);}
+.dropdown-content a:last-child{border-bottom:none;}
+.dropdown-content a:hover{background:var(--off-white);color:var(--orange);}
+.dropdown:hover .dropdown-content{display:block;}
+.header-cta{background:var(--orange);color:white;padding:11px 24px;border-radius:50px;font-size:14px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;transition:all var(--transition);box-shadow:0 4px 15px rgba(249,110,53,0.4);}
+.header-cta:hover{background:var(--orange-light);transform:translateY(-1px);color:white;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{display:block;width:24px;height:2px;background:white;border-radius:2px;}
+.mobile-menu{display:none;flex-direction:column;position:fixed;top:90px;left:0;right:0;background:var(--navy-dark);padding:30px 25px;z-index:999;border-top:1px solid rgba(255,255,255,0.1);}
+.mobile-menu.show{display:flex;}
+.mobile-menu a{color:white;font-size:17px;font-weight:600;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.mobile-dropdown-toggle{color:white;font-size:17px;font-weight:600;cursor:pointer;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.mobile-dropdown-menu{display:none;flex-direction:column;background:rgba(255,255,255,0.08);border-radius:var(--radius-sm);padding:10px 0;margin:8px 0;}
+.mobile-dropdown-menu a{color:rgba(255,255,255,0.85);padding:10px 16px;font-size:15px;border-bottom:none;}
+.mobile-dropdown.show .mobile-dropdown-menu{display:flex;}
+/* SECTION LABELS */
+.section-label{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:14px;display:block;}
+.section-heading{font-family:"Syne",sans-serif;font-size:clamp(26px,3.5vw,42px);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:18px;letter-spacing:-0.5px;}
+.section-subtext{font-size:16px;color:var(--text-mid);max-width:580px;line-height:1.75;margin-bottom:50px;}
+/* HERO (inner pages) */
+.hero{position:relative;height:55vh;min-height:420px;overflow:hidden;display:flex;align-items:center;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,30,70,0.88) 0%,rgba(0,51,102,0.65) 60%,transparent 100%);}
+.hero-content{position:relative;z-index:2;padding:0 80px;max-width:760px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(249,110,53,0.2);border:1px solid rgba(249,110,53,0.4);color:#ffb08a;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:24px;}
+.hero h1{font-family:"Syne",sans-serif;font-size:clamp(36px,5vw,64px);font-weight:800;color:white;line-height:1.1;margin-bottom:20px;letter-spacing:-1px;}
+.hero h1 span{color:var(--orange);}
+.hero p{font-size:17px;color:rgba(255,255,255,0.8);line-height:1.7;max-width:560px;}
+/* CARDS */
+.cards-section{padding:90px 40px;background:var(--light-grey);}
+.cards-inner{max-width:1200px;margin:auto;}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-top:50px;}
+.feat-card{background:white;border-radius:var(--radius-lg);padding:36px 30px;border:1px solid var(--mid-grey);box-shadow:var(--shadow-sm);transition:all var(--transition);}
+.feat-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:transparent;}
+.feat-icon{width:52px;height:52px;margin-bottom:20px;display:block;}
+.feat-icon svg{width:100%;height:100%;}
+.feat-card h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:10px;}
+.feat-card p{font-size:14px;color:var(--text-mid);line-height:1.75;}
+/* SPLIT */
+.split-section{padding:90px 40px;background:white;}
+.split-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.split-img{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-xl);}
+.split-img img{width:100%;height:420px;object-fit:cover;display:block;}
+.split-text p{font-size:15px;color:var(--text-mid);line-height:1.8;margin-bottom:16px;}
+.split-list{list-style:none;margin:20px 0;}
+.split-list li{padding:10px 0;border-bottom:1px solid var(--mid-grey);font-size:14px;color:var(--text-mid);display:flex;align-items:center;gap:10px;}
+.split-list li::before{content:"✓";color:var(--orange);font-weight:700;font-size:14px;flex-shrink:0;}
+.btn-orange{display:inline-block;background:var(--orange);color:white;padding:14px 30px;border-radius:50px;font-size:14px;font-weight:700;transition:all var(--transition);margin-top:24px;}
+.btn-orange:hover{background:var(--orange-light);transform:translateY(-2px);color:white;}
+/* DARK SECTION */
+.dark-section{padding:90px 40px;background:var(--navy);}
+.dark-inner{max-width:1200px;margin:auto;}
+.dark-section .section-heading{color:white;}
+.dark-section .section-label{color:rgba(249,110,53,0.9);}
+.dark-section .section-subtext{color:rgba(255,255,255,0.65);}
+.dark-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;margin-top:50px;}
+.dark-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:30px 26px;transition:all var(--transition);}
+.dark-card:hover{background:rgba(255,255,255,0.1);border-color:var(--orange);transform:translateY(-4px);}
+.dark-card h3{font-size:16px;font-weight:700;color:white;margin-bottom:10px;}
+.dark-card p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;}
+/* METRICS */
+.metrics-section{background:var(--orange);padding:50px 40px;}
+.metrics-inner{max-width:900px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center;}
+.met-val{font-family:"Syne",sans-serif;font-size:44px;font-weight:800;color:white;}
+.met-label{font-size:13px;color:rgba(255,255,255,0.85);font-weight:500;margin-top:6px;}
+/* CTA BANNER */
+.cta-banner{padding:90px 40px;background:linear-gradient(135deg,var(--orange) 0%,#e8560a 100%);text-align:center;position:relative;overflow:hidden;}
+.cta-banner::before{content:"";position:absolute;top:-40%;left:-15%;width:50%;height:200%;background:rgba(255,255,255,0.06);border-radius:50%;}
+.cta-inner{max-width:650px;margin:auto;position:relative;z-index:1;}
+.cta-banner h2{font-family:"Syne",sans-serif;font-size:clamp(24px,3.5vw,40px);font-weight:800;color:white;margin-bottom:14px;}
+.cta-banner p{font-size:16px;color:rgba(255,255,255,0.85);margin-bottom:34px;line-height:1.7;}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-white{background:white;color:var(--orange);padding:14px 30px;border-radius:50px;font-size:14px;font-weight:700;transition:all var(--transition);display:inline-block;}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.18);color:var(--orange);}
+.btn-ghost-w{background:transparent;color:white;padding:14px 30px;border-radius:50px;font-size:14px;font-weight:600;border:2px solid rgba(255,255,255,0.6);transition:all var(--transition);display:inline-block;}
+.btn-ghost-w:hover{background:rgba(255,255,255,0.12);border-color:white;transform:translateY(-2px);color:white;}
+/* FOOTER */
+.footer{background:var(--navy-dark);color:white;padding:80px 40px 40px;}
+.footer-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;}
+.footer-brand p{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7;margin-top:16px;}
+.footer-logo{max-width:140px;}
+.footer-contact{margin-top:20px;font-size:14px;color:rgba(255,255,255,0.55);line-height:1.9;}
+.footer-col h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.4);margin-bottom:20px;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:10px;}
+.footer-col a{color:rgba(255,255,255,0.65);font-size:14px;transition:color var(--transition);}
+.footer-col a:hover{color:var(--orange);}
+.footer-divider{border:none;border-top:1px solid rgba(255,255,255,0.08);margin:50px 0 30px;}
+.footer-bottom{max-width:1200px;margin:auto;font-size:13px;color:rgba(255,255,255,0.35);text-align:center;}
+#backToTop{position:fixed;bottom:32px;right:32px;background:var(--orange);color:white;border:none;width:48px;height:48px;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(249,110,53,0.4);z-index:999;transition:all var(--transition);}
+#backToTop:hover{background:var(--orange-light);transform:translateY(-2px);}
+@media(max-width:1024px){.footer-inner{grid-template-columns:1fr 1fr;}.split-inner{grid-template-columns:1fr;gap:40px;}.metrics-inner{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){header{padding:0 20px;height:75px;}.logo{height:50px;}nav,.header-cta{display:none;}.hamburger{display:flex;}.mobile-menu{top:75px;}.hero-content{padding:0 30px;}.footer-inner{grid-template-columns:1fr;gap:36px;}.cards-section,.split-section,.dark-section,.metrics-section,.cta-banner{padding:60px 20px;}.metrics-inner{grid-template-columns:1fr;}}
+
+.hero{background:url("/web pictures/Broadband.png") center/cover no-repeat;}
+</style>
+</head>
+<body>
+<button id="backToTop">&#8593;</button>
+<header>
+  <a href="/web pages/index.html"><img src="/web pictures/Norwest logo.PNG" alt="Norwest Digital" class="logo"></a>
+  <nav>
+    <a href="/web pages/index.html">Home</a>
+    <a href="/web pages/About us.html">About Us</a>
+    <a href="/web pages/Our services.html">Our Services</a>
+    <div class="dropdown">
+      <span class="dropdown-btn">Solutions</span>
+      <div class="dropdown-content">
+        <a href="/web pages/GP Surgeries.html">GP Surgeries</a>
+        <a href="/web pages/Solicitor Practice.html">Solicitor Practice</a>
+        <a href="/web pages/Schools.html">Schools</a>
+        <a href="/web pages/Other Sectors.html">Other Sectors</a>
+      </div>
+    </div>
+  </nav>
+  <a href="/php forms/Book_a_call.php" class="header-cta">Book a Call</a>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</header>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/web pages/index.html">Home</a>
+  <a href="/web pages/About us.html">About Us</a>
+  <a href="/web pages/Our services.html">Our Services</a>
+  <div class="mobile-dropdown">
+    <div class="mobile-dropdown-toggle">Solutions &#9662;</div>
+    <div class="mobile-dropdown-menu">
+      <a href="/web pages/GP Surgeries.html">GP Surgeries</a>
+      <a href="/web pages/Solicitor Practice.html">Solicitor Practice</a>
+      <a href="/web pages/Schools.html">Schools</a>
+      <a href="/web pages/Other Sectors.html">Other Sectors</a>
+    </div>
+  </div>
+  <a href="/php forms/Book_a_call.php">Book a Call</a>
+</div>
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Connectivity Solutions</div>
+    <h1>Broadband<br><span>Infrastructure</span></h1>
+    <p>Business-grade connectivity designed, installed and supported by our own engineers — built to last and built to perform.</p>
+  </div>
+</section>
+<section class="cards-section">
+  <div class="cards-inner">
+    <span class="section-label">What We Provide</span>
+    <h2 class="section-heading">Connectivity That Doesn't Let You Down</h2>
+    <p class="section-subtext">Whether you need a leased line, full-fibre or a managed broadband upgrade, we design the right solution for your organisation — then handle everything from surveying to go-live.</p>
+    <div class="cards-grid">
+      <div class="feat-card"><span class="feat-icon"><svg viewBox="0 0 52 52" fill="none"><rect width="52" height="52" rx="12" fill="#003366"/><path d="M10 30c4.4-5.3 9.9-8 16-8s11.6 2.7 16 8" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M16 36c2.7-3.2 5.9-5 10-5s7.3 1.8 10 5" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="26" cy="42" r="2.5" fill="#f96e35"/><line x1="26" y1="18" x2="26" y2="10" stroke="#f96e35" stroke-width="2" stroke-linecap="round"/><path d="M4 24c6-7.2 13.2-11 22-11s16 3.8 22 11" stroke="#f96e35" stroke-width="2" stroke-linecap="round" opacity="0.5"/></svg></span><h3>Ultrafast Speeds</h3><p>Symmetric upload and download, dedicated bandwidth and no contention — so performance is consistent whether there are 5 people or 500 on the network.</p></div>
+      <div class="feat-card"><span class="feat-icon"><svg viewBox="0 0 52 52" fill="none"><rect width="52" height="52" rx="12" fill="#003366"/><circle cx="26" cy="26" r="14" stroke="white" stroke-width="2"/><path d="M19 26l5 5 9-10" stroke="#f96e35" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Managed Installation</h3><p>Design, cabling, equipment configuration and testing — all handled by our own engineers, with minimum disruption to your day.</p></div>
+      <div class="feat-card"><span class="feat-icon"><svg viewBox="0 0 52 52" fill="none"><rect width="52" height="52" rx="12" fill="#003366"/><rect x="14" y="24" width="24" height="18" rx="3" stroke="white" stroke-width="2"/><path d="M18 24v-6a8 8 0 0116 0v6" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="26" cy="33" r="3" fill="#f96e35"/><line x1="26" y1="36" x2="26" y2="39" stroke="#f96e35" stroke-width="2" stroke-linecap="round"/></svg></span><h3>Enterprise Security</h3><p>Next-generation firewalls, DNS filtering, AES encryption and 24/7 threat monitoring included as standard — not as an optional extra.</p></div>
+      <div class="feat-card"><span class="feat-icon"><svg viewBox="0 0 52 52" fill="none"><rect width="52" height="52" rx="12" fill="#003366"/><rect x="8" y="30" width="8" height="14" rx="2" stroke="white" stroke-width="2"/><rect x="22" y="22" width="8" height="22" rx="2" stroke="#f96e35" stroke-width="2"/><rect x="36" y="12" width="8" height="32" rx="2" stroke="white" stroke-width="2"/></svg></span><h3>Built to Scale</h3><p>Your infrastructure grows with you. Adding sites, users or bandwidth shouldn't mean starting from scratch — and with our solutions, it won't.</p></div>
+    </div>
+  </div>
+</section>
+<section class="split-section">
+  <div class="split-inner">
+    <div class="split-img"><img src="/web pictures/Broadband.png" alt="Broadband"></div>
+    <div class="split-text">
+      <span class="section-label">Why It Matters</span>
+      <h2 class="section-heading">Your Broadband Is the Foundation of Everything</h2>
+      <p>Cloud storage, video calls, hosted phone systems, payment processing — almost everything your organisation does runs over your internet connection. A poorly designed or unreliable connection doesn't just slow you down, it costs you.</p>
+      <p>We conduct a full on-site survey before recommending anything, so the solution fits your building, your user density and your applications — not just the nearest off-the-shelf package.</p>
+      <ul class="split-list">
+        <li>Full-fibre and leased line options</li>
+        <li>99.9% uptime SLA on all business contracts</li>
+        <li>Static IP addresses as standard</li>
+        <li>Symmetric upload and download speeds</li>
+        <li>Dedicated — no sharing with other businesses</li>
+        <li>On-site survey and custom design included</li>
+      </ul>
+      <a href="/php forms/Book_a_call.php" class="btn-orange">Book a Free Assessment</a>
+    </div>
+  </div>
+</section>
+<section class="dark-section">
+  <div class="dark-inner">
+    <span class="section-label">Also Included</span>
+    <h2 class="section-heading">The Full Package</h2>
+    <p class="section-subtext">Our broadband installations cover everything — not just the line itself.</p>
+    <div class="dark-grid">
+      <div class="dark-card"><h3>Network Design</h3><p>Bespoke architecture tailored to your building layout, number of users and application requirements.</p></div>
+      <div class="dark-card"><h3>Structured Cabling</h3><p>Cat6/Cat6A and fibre cabling installed to industry standards with proper cable management throughout.</p></div>
+      <div class="dark-card"><h3>Router &amp; Switch Setup</h3><p>Enterprise hardware configured by our team — including VLAN segmentation and quality of service rules.</p></div>
+      <div class="dark-card"><h3>Ongoing Monitoring</h3><p>24/7 network monitoring with automated alerts and proactive fault resolution — we fix issues before you notice them.</p></div>
+    </div>
+  </div>
+</section>
+<section class="metrics-section">
+  <div class="metrics-inner">
+    <div><div class="met-val">99.9%</div><div class="met-label">Uptime SLA</div></div>
+    <div><div class="met-val">4hr</div><div class="met-label">Average Response Time</div></div>
+    <div><div class="met-val">10Gb</div><div class="met-label">Max Leased Line Speed</div></div>
+  </div>
+</section>
+<section class="cta-banner">
+  <div class="cta-inner">
+    <h2>Let's Talk About Your Connectivity</h2>
+    <p>Book a free call with one of our broadband specialists. We'll assess what you need and tell you honestly whether we can help.</p>
+    <div class="cta-btns">
+      <a href="/php forms/Book_a_call.php" class="btn-white">Book a Free Call</a>
+      <a href="/web pages/Our services.html" class="btn-ghost-w">All Services</a>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/web pictures/Norwest logo.PNG" class="footer-logo" alt="Norwest">
+      <p>Reliable telecom solutions for schools, GP surgeries and professional firms across the UK.</p>
+      <div class="footer-contact">
+        <div>(0151) 355-6089</div>
+        <div>info@norwestdigital.co.uk</div>
+        <div>19 Bridgewater House, Dock Road, Ellesmere Port, CH65 1AF</div>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Services</h4><ul>
+      <li><a href="/web pages/Broadband.html">Broadband</a></li>
+      <li><a href="/web pages/Hosted Systems.html">Hosted Systems</a></li>
+      <li><a href="/web pages/Mobile Network.html">Mobile Network</a></li>
+      <li><a href="/web pages/CCTV Security.html">CCTV &amp; Security</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Solutions</h4><ul>
+      <li><a href="/web pages/GP Surgeries.html">GP Surgeries</a></li>
+      <li><a href="/web pages/Solicitor Practice.html">Solicitor Practice</a></li>
+      <li><a href="/web pages/Schools.html">Schools</a></li>
+      <li><a href="/web pages/Other Sectors.html">Other Sectors</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Company</h4><ul>
+      <li><a href="/web pages/About us.html">About Us</a></li>
+      <li><a href="/web pages/Our services.html">Our Services</a></li>
+      <li><a href="/php forms/Book_a_call.php">Book a Call</a></li>
+      <li><a href="/web pages/safety.html">Safety</a></li>
+      <li><a href="/web pages/Privacy policy.html">Privacy Policy</a></li>
+    </ul></div>
+  </div>
+  <hr class="footer-divider">
+  <div class="footer-bottom">&copy; 2025 Norwest Digital Telecommunications Ltd. All rights reserved.</div>
+</footer>
+<script>
+const hamburger=document.getElementById("hamburger"),mobileMenu=document.getElementById("mobile-menu");
+hamburger.addEventListener("click",(e)=>{e.stopPropagation();mobileMenu.classList.toggle("show");});
+document.addEventListener("click",(e)=>{if(!mobileMenu.contains(e.target)&&!hamburger.contains(e.target))mobileMenu.classList.remove("show");});
+document.querySelector(".mobile-dropdown-toggle").addEventListener("click",function(e){e.stopPropagation();this.parentElement.classList.toggle("show");});
+const backToTop=document.getElementById("backToTop");
+window.addEventListener("scroll",()=>{backToTop.style.display=window.scrollY>400?"flex":"none";});
+backToTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+</script>
+
+</body>
+</html>
