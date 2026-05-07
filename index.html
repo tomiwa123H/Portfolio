@@ -218,29 +218,163 @@
     .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.65s ease,transform 0.65s ease; }
     .reveal.visible { opacity:1; transform:translateY(0); }
 
-    /* RESPONSIVE */
+    /* ══════════════════════════════════════
+       RESPONSIVE — TABLET (max 1024px)
+    ══════════════════════════════════════ */
+    @media(max-width:1024px) {
+      /* Services: 2 col on tablet, featured card full width */
+      .services-grid { grid-template-columns:1fr 1fr; gap:1.25rem; }
+      .service-card.featured { grid-column:1 / -1; }
+
+      /* Case study: stack on tablet */
+      .cases-grid { grid-template-columns:1fr; }
+
+      /* Hero ring smaller on tablet */
+      .hero-ring { width:260px; height:260px; }
+
+      /* Contact wrap: narrower gap */
+      .contact-wrap { gap:2.5rem; }
+
+      /* Case facts always 3 col on tablet */
+      .case-facts { grid-template-columns:repeat(3,1fr); }
+    }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE — SMALL TABLET (max 900px)
+    ══════════════════════════════════════ */
     @media(max-width:900px) {
       .services-grid { grid-template-columns:1fr; }
+      .service-card.featured { grid-column:auto; }
       .cases-grid { grid-template-columns:1fr; }
+      .faq-grid { grid-template-columns:1fr 1fr; }
+
+      /* Trust bar: wrap neatly */
+      .trust-inner { flex-direction:column; align-items:flex-start; gap:1rem; }
+      .trust-items { gap:1.25rem; }
+
+      /* Problem grid stack */
+      .problem-grid { grid-template-columns:1fr; gap:2.5rem; }
+
+      /* About grid stack */
+      .about-grid { grid-template-columns:1fr; gap:2.5rem; }
     }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE — MOBILE LANDSCAPE + TABLET PORTRAIT (max 768px)
+    ══════════════════════════════════════ */
     @media(max-width:768px) {
-      .nav-links{display:none} .hamburger{display:flex}
-      .problem-grid,.about-grid,.contact-wrap { grid-template-columns:1fr; gap:2.5rem; }
+      /* Nav */
+      .nav-links { display:none; }
+      .hamburger { display:flex; }
+
+      /* Sections — tighter padding */
+      section { padding:clamp(3.5rem,8vw,5rem) clamp(1.25rem,4vw,2rem); }
+
+      /* Hero */
+      .hero-inner { padding:3.5rem clamp(1.25rem,4vw,2rem); }
+      .hero-name { font-size:clamp(2.4rem,9vw,3.8rem); line-height:1.0; }
+      .hero-ring { display:none; }
+      .hero-blob-left,.hero-blob-right { width:320px; height:320px; opacity:0.2; }
+
+      /* Contact wrap: single column */
+      .contact-wrap { grid-template-columns:1fr; gap:2rem; padding:2rem 1.5rem; border-radius:16px; }
+
+      /* FAQ: single column */
       .faq-grid { grid-template-columns:1fr; }
-    }
-    @media(max-width:480px) {
-      .hero-inner { padding:3rem 1.5rem; }
-      .hero-name { font-size:2.8rem; line-height:1.0; letter-spacing:-0.03em; }
+
+      /* Case header: stack */
+      .case-header { grid-template-columns:1fr; }
+
+      /* Case card banner taller on mobile for visibility */
+      .case-card-banner { height:160px; }
+
+      /* Service card: full width */
+      .services-grid { grid-template-columns:1fr; }
+
+      /* Section titles slightly smaller */
+      .section-title { font-size:clamp(1.75rem,5vw,2.25rem); }
+
+      /* Trust items: wrap with smaller gap */
+      .trust-items { gap:1rem; }
+      .trust-item { font-size:0.78rem; }
+
+      /* Hero stats: tighter */
       .hero-stats { gap:1rem; }
-      .hero-stat-num { font-size:1.3rem; }
+      .hero-stat-divider { display:none; }
+    }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE — MOBILE (max 560px)
+    ══════════════════════════════════════ */
+    @media(max-width:560px) {
+      /* Hero */
+      .hero-inner { padding:3rem 1.25rem 2.5rem; }
+      .hero-name { font-size:2.6rem; letter-spacing:-0.03em; }
+      .hero-tag { font-size:0.78rem; }
+      .hero-sub { font-size:0.97rem; }
       .hero-cta { flex-direction:column; }
       .hero-cta .btn { width:100%; justify-content:center; }
-      .hero-ring { display:none; }
-      .case-facts { grid-template-columns:repeat(2,1fr); }
+
+      /* Stats row: 2x2 grid */
+      .hero-stats { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; }
+      .hero-stat-divider { display:none; }
+      .hero-stat { background:var(--surface); border:1px solid rgba(0,0,0,0.07); border-radius:12px; padding:0.75rem 1rem; }
+      .hero-stat-num { font-size:1.4rem; }
+      .hero-stat-label { font-size:0.7rem; }
+
+      /* Trust bar: vertical stack */
+      .trust-inner { flex-direction:column; align-items:flex-start; }
+      .trust-items { flex-direction:column; gap:0.5rem; }
+      .trust-item { opacity:0.65; }
+
+      /* Problem: single col with tighter spacing */
+      .problem-list { gap:0.75rem; }
+      .problem-item { padding:0.85rem 1rem; }
+
+      /* Case facts: 2 col */
+      .case-facts { grid-template-columns:1fr 1fr; }
+
+      /* Case card body padding */
+      .case-card-body { padding:1.25rem 1.25rem 1.5rem; }
+      .case-card-title { font-size:1.1rem; }
+
+      /* Services */
+      .service-card { padding:1.75rem 1.5rem; }
+
+      /* About card stats: tighter */
+      .stat-row { gap:0.75rem; }
+      .stat-box { padding:1rem; }
+      .stat-num { font-size:1.65rem; }
+
+      /* FAQ */
+      .faq-item { padding:1.25rem; }
+
+      /* Contact form */
+      .contact-form { padding:1.5rem 1.25rem; }
+      .contact-wrap { padding:1.75rem 1.25rem; }
+      .contact-left h2 { font-size:1.5rem; }
+
+      /* Buttons full width in cards */
+      .case-card-actions { flex-direction:column; }
+      .case-card-actions .btn { width:100%; justify-content:center; }
+
+      /* Footer */
+      footer { flex-direction:column; align-items:flex-start; gap:0.75rem; }
+      .footer-links { gap:1rem; }
+
+      /* Guarantee pill wrap */
+      .guarantee-pill { font-size:0.78rem; text-align:left; }
     }
-    @media(max-width:560px) {
-      .card-actions,.case-card-actions { flex-direction:column; }
-      .card-actions .btn,.case-card-actions .btn { width:100%; justify-content:center; }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE — SMALL MOBILE (max 380px)
+    ══════════════════════════════════════ */
+    @media(max-width:380px) {
+      .hero-name { font-size:2.2rem; }
+      .hero-stats { grid-template-columns:1fr 1fr; }
+      .case-facts { grid-template-columns:1fr 1fr; }
+      .section-title { font-size:1.6rem; }
+      .contact-wrap { padding:1.5rem 1rem; }
     }
   </style>
 </head>
@@ -459,7 +593,7 @@
           <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">PHPMailer</span><span class="tag">SEO</span>
         </div>
         <div class="case-card-actions">
-          <a href="https://norwestdigital.co.uk" target="_blank" rel="noopener" class="btn btn-dark btn-sm">
+          <a href="https://norwest.page.gd/" target="_blank" rel="noopener" class="btn btn-dark btn-sm">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             Visit Live Site
           </a>
